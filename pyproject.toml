@@ -1,0 +1,21 @@
+[project]
+name = "gen-ai-solutions"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "mghoreishi_gngroup",email = "mghoreishi@gn.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pyodbc (>=5.2.0,<6.0.0)",
+    "streamlit (>=1.41.1,<2.0.0)",
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "openai (>=1.60.2,<2.0.0)",
+    "textblob (>=0.19.0,<0.20.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

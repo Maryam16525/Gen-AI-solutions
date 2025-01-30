@@ -1,0 +1,85 @@
+Metadata-Version: 2.3
+Name: poetry-plugin-export
+Version: 1.9.0
+Summary: Poetry plugin to export the dependencies to various formats
+License: MIT
+Author: Sébastien Eustace
+Author-email: sebastien@eustace.io
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: poetry (>=2.0.0,<3.0.0)
+Requires-Dist: poetry-core (>=1.7.0,<3.0.0)
+Project-URL: Homepage, https://python-poetry.org/
+Project-URL: Repository, https://github.com/python-poetry/poetry-plugin-export
+Description-Content-Type: text/markdown
+
+# Poetry Plugin: Export
+
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
+
+This package is a plugin that allows the export of locked packages to various formats.
+
+**Note**: For now, only the `constraints.txt` and `requirements.txt` formats are available.
+
+This plugin provides the same features as the existing `export` command of Poetry which it will eventually replace.
+
+
+## Installation
+
+On Poetry 2.0 and newer, the easiest way to add the `export` plugin is to declare it as a required Poetry plugin.
+
+```toml
+[tool.poetry.requires-plugins]
+poetry-plugin-export = ">=1.8"
+```
+
+Otherwise, install the plugin via the `self add` command of Poetry.
+
+```bash
+poetry self add poetry-plugin-export
+```
+
+If you used `pipx` to install Poetry you can add the plugin via the `pipx inject` command.
+
+```bash
+pipx inject poetry poetry-plugin-export
+```
+
+Otherwise, if you used `pip` to install Poetry you can add the plugin packages via the `pip install` command.
+
+```bash
+pip install poetry-plugin-export
+```
+
+
+## Usage
+
+The plugin provides an `export` command to export to the desired format.
+
+```bash
+poetry export -f requirements.txt --output requirements.txt
+```
+
+**Note**: Only the `constraints.txt` and `requirements.txt` formats are currently supported.
+
+### Available options
+
+* `--format (-f)`: The format to export to (default: `requirements.txt`). Currently, only `constraints.txt` and `requirements.txt` are supported.
+* `--output (-o)`: The name of the output file.  If omitted, print to standard output.
+* `--with`: The optional and non-optional dependency groups to include. By default, only the main dependencies are included.
+* `--only`: The only dependency groups to include. It is possible to exclude the `main` group this way.
+* `--without`: The dependency groups to ignore. (**Deprecated**)
+* `--default`: Only export the main dependencies. (**Deprecated**)
+* `--dev`: Include development dependencies. (**Deprecated**)
+* `--extras (-E)`: Extra sets of dependencies to include.
+* `--all-extras`: Include all sets of extra dependencies.
+* `--all-groups`: Include all dependency groups.
+* `--without-hashes`: Exclude hashes from the exported file.
+* `--with-credentials`: Include credentials for extra indices.
+
