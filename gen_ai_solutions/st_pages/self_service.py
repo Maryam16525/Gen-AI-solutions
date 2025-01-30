@@ -8,6 +8,7 @@ from tenacity import retry, wait_random_exponential, stop_after_attempt
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 from azure.kusto.ingest import KustoStreamingIngestClient, IngestionProperties
+from azure.kusto.data.helpers import dataframe_from_result_table
 
 import streamlit as st
 import zipfile
@@ -19,6 +20,7 @@ import pandas as pd
 from pptx import Presentation  # For PowerPoint files
 from docx import Document  # For Word documents
 from openpyxl import load_workbook
+import json
 
 # Load environment variables from .env file
 load_dotenv()
@@ -28,6 +30,11 @@ azure_endpoint = os.getenv("OPENAI_DEPLOYMENT_ENDPOINT")
 api_version = api_version="2023-12-01-preview"
 OPENAI_ADA_EMBEDDING_DEPLOYMENT_NAME = "text-embedding-ada-002"
 OPENAI_GPT4_DEPLOYMENT_NAME = "gpt-4o"
+KUSTO_DATABASE = "GenAI_eventhouse"
+KUSTO_TABLE = "bookEmbeddings"
+
+container_name = "container1"
+blob_name = "temp_batch_0.csv"
 
 KUSTO_URI=os.getenv("KUSTO_URI")
 
