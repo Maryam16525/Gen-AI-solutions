@@ -1,3 +1,11 @@
+UI
+<img width="364" alt="image" src="https://github.com/user-attachments/assets/321ecc35-80cf-4ad1-8e31-af09eca6f951" />
+
+
+
+
+
+
 Gen-AI Solutions
 
 Gen-AI Solutions is a repository dedicated to building and deploying Generative AI applications using Azure services, OpenAI models, and advanced search techniques. This project includes implementations of hybrid search, Retrieval-Augmented Generation (RAG), and intelligent virtual assistants to enhance AI-driven automation and self-service capabilities.
